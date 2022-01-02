@@ -72,12 +72,6 @@ assignGrade(75);
 assignGrade(85);
 
 
-
-
-
-
-
-
 // The Pluralizer
 // Write a function named pluralize that:
 // takes 2 arguments, a noun and a number.
@@ -86,5 +80,12 @@ assignGrade(85);
 // Bonus: Make it handle a few collective nouns like "sheep" and "geese".
 //
 //
-//
-//
+const pluralize = function (noun, number){
+  if (number === 1){
+    console.log(`${number} ${noun}`);
+  } else {
+    console.log(`${number} ${noun}s`);
+  }
+}
+pluralize("cat", 8);
+pluralize("cat", 1);
