@@ -51,3 +51,102 @@ for( let i=0; i < myBooks.length; i++){
     console.log(`You haven't read ${myBook.name} by ${myBook.author} `);
   }
 };
+
+
+
+
+
+
+
+
+
+// # Geometry Function Lab
+//
+// ### Part 1, Rectangle
+//
+// Given the following a `rectangle` object like the one below, write the following functions which accept a `rectangle` object as an argument:
+//
+// * isSquare - Returns whether the rectangle is a square or not
+// * area - Returns the area of the rectangle
+// * perimeter - Returns the perimeter of the rectangle
+//
+// ```javascript
+
+
+const rectangleA = {
+  length: 4,
+  width: 4
+};
+
+const isSquare = function (rectA) {
+   if (rectA.length === rectA.width) {
+     console.log("It's a square.");
+   } else {
+     console.log("It's not a square.");
+   }
+};
+isSquare(rectangleA);
+
+const area = function (rectA) {
+  let areaOfRec = (rectA.length * rectA.width)
+  console.log(`Area of the rectangle is ${areaOfRec}.`);
+};
+area(rectangleA);
+
+const perimeter = function (rectA) {
+  let periOfRec = 2 * (rectA.length + rectA.width)
+  console.log(`Perimeter of the rectangle is ${periOfRec}.`);
+};
+perimeter(rectangleA);
+
+
+
+// ### Part 2, Triangle
+//
+// Given the following a `triangle` object like the one below, write the following functions which accept a `triangle` object as an argument:
+//
+// * isEquilateral - Returns whether the triangle is equilateral or not
+// * isIsosceles - Returns whether the triangle is isosceles or not
+// * area - Returns the area of the Triangle
+// * isObtuse - Returns whether the triangle is obtuse or not
+//
+// ```javascript
+const triangleB = {
+  sideA: 3,
+  sideB: 4,
+  sideC: 4
+};
+
+const isEquilateral = function (triangleB) {
+  if (triangleB.sideA === triangleB.sideB === triangleB.sideC) {
+    console.log("It's an Equilateral Triangle.");
+  } else {
+    console.log("It's not an Equilateral Triangle.");
+  }
+};
+isEquilateral(triangleB);
+
+const isIsosceles = function (triangleB) {
+  if (triangleB.sideA === triangleB.sideB !== triangleB.sideC || triangleB.sideA !== triangleB.sideB === triangleB.sideC || triangleB.sideA === triangleB.sideC != triangleB.sideB){
+    console.log("It's an Isosceles Triangle.");
+  } else {
+    console.log("It's not an Isosceles Triangle.");
+  }
+};
+isIsosceles(triangleB);
+
+const areaT = function (triangleB) {
+  var s = (triangleB.sideA + triangleB.sideB + triangleB.sideC)/2;
+   const areaOftriangle = Math.sqrt(s*((s-triangleB.sideA)*(s-triangleB.sideB)*(s-triangleB.sideC)));
+   console.log(`The area for a triangle is ${areaOftriangle}.`);
+};
+areaT(triangleB);
+
+const isObtuse= function (){
+  if ( (triangleB.sideA * triangleB.sideA) + (triangleB.sideB * triangleB.sideB) < (triangleB.sideC * triangleB.sideC) || (triangleB.sideA * triangleB.sideA) + (triangleB.sideC * triangleB.sideC) < (triangleB.sideB * triangleB.sideB) || (triangleB.sideC * triangleB.sideC) + (triangleB.sideB * triangleB.sideB) < (triangleB.sideA * triangleB.sideA)){
+  console.log(`It is an abtuse triangle.`);
+} else {
+  console.log(`It is not an abtuse triangle.`);
+}
+};
+isObtuse ();
