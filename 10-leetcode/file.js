@@ -843,3 +843,69 @@ isLeapYear(1997);
 isLeapYear(1996);
 isLeapYear(1900);
 isLeapYear(2000);
+
+
+
+// There is an integer array nums sorted in ascending order (with distinct values).
+//
+// Prior to being passed to your function, nums is rotated at an unknown pivot index k (0 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+//
+// Given the array nums after the rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+//
+// Constraints:
+// 1 ≤ nums.length ≤ 5000
+// -104 ≤ nums[i] ≤ 104
+// All values of nums are unique.
+// nums is guaranteed to be rotated at some pivot.
+// -104 ≤ target ≤ 104.
+
+
+var search = function (nums, target) {
+    // Special case
+    if (nums === null || nums.length === 0) {
+        return -1;
+    }
+    // Left and right pointers in the array
+    let left = 0;
+    let right = nums.length - 1;
+    // First step is to find the pivot where the
+    // array is rotated
+    while (left < right) {
+        // Middle pointer
+        let middle = left + parseInt((right - left) / 2);
+        // If the element at the mid is greater than
+        // the element at the right then we can say that
+        // the array is rotated after middle index
+        if (nums[middle] > nums[right]) {
+            left = middle + 1;
+        }
+        // Else, the pivot is in the left part
+        else {
+            right = middle;
+        }
+    }
+    // After the above loop is completed, then the
+    // left index will point to the pivot
+    const pivot = left;
+    left = 0;
+    right = nums.length - 1;
+    // Now we will find in which half of the array,
+    // our target is present
+    if (target >= nums[pivot] && target <= nums[right]) {
+        left = pivot;
+    } else {
+        right = pivot;
+    }
+    // Now perform normal binary search
+    while (left <= right) {
+        let middle = left + parseInt((right - left) / 2);
+        if (nums[middle] === target) {
+            return middle;
+        } else if (target < nums[middle]) {
+            right = middle - 1;
+        } else {
+            left = middle + 1;
+        }
+    }
+    return -1;
+};
